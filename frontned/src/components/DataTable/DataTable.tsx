@@ -32,6 +32,7 @@ const DataTable = (props: IDataTableProps) => {
           </td>
 
           <td className="px-6 py-3">{item.clicks}</td>
+          <td className="px-6 py-3">{}</td>
         </tr>
       );
     });
@@ -49,10 +50,10 @@ const DataTable = (props: IDataTableProps) => {
               <th scope="col" className="px=6 py-3 w-6/12">
                 Shorturl
               </th>
-              <th scope="col" className="px=6 py-3 ">
+              <th scope="col" className="px-6 py-3 w-6/12 ">
                 clicks
               </th>
-              <th scope="col" className="px=6 py-3 ">
+              <th scope="col" className="px-6 py-3 w-6/12 ">
                 Action
               </th>
             </tr>
