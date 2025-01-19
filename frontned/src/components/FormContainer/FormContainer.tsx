@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 
 type Props = {};
@@ -7,9 +8,16 @@ const FormContainer = (props: Props) => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-
-
-
+    try {
+      const url = await axios.post("http://localhost:8000/api/shortUrl", {
+        fullUrl: fullUrl,
+      });
+      console.log(fullUrl);
+      console.log(url);
+      setFullUrl("");
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <div className="container mx-auto bg-blue-500 p-2">
@@ -19,7 +27,7 @@ const FormContainer = (props: Props) => {
           Paste your untidy link at the bottom
         </p>
 
-        <form onAbort={handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <div className="flex">
             <div className="w-full relative">
               <div className="absolute inset-y-0 start-0 flex items-center ps-2 pointer-events-none text-slate-800">
