@@ -8,20 +8,24 @@ type Props = {};
 
 const Container = (props: Props) => {
   const [data, setData] = useState<urlData[]>([]);
-
+  const [reload, setReload] = useState<boolean>(false);
+  const updateReloadState = (): void => {
+    setReload(true);
+  };
   const fetchTableData = async () => {
     const response = await axios.get("http://localhost:8000/api/shortUrl");
 
     console.log(response);
     setData(response.data);
+    setReload(false);
   };
   useEffect(() => {
     fetchTableData();
-  }, []);
+  }, [reload]);
   return (
     <div className="">
-      <FormContainer />
-      <DataTable data={data} />
+      <FormContainer updateReloadState={updateReloadState} />
+      <DataTable updateReloadState={updateReloadState} data={data} />
     </div>
   );
 };

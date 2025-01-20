@@ -13,7 +13,9 @@ export const createUrl = async (
         success: false,
         message: "fullUrl is required",
       });
+      return;
     }
+
     const urlFound = await urlModel.findOne({ fullUrl });
 
     if (urlFound) {
@@ -37,7 +39,7 @@ export const getAllUrl = async (
   res: express.Response
 ) => {
   try {
-    const shortUrls = await urlModel.find();
+    const shortUrls = await urlModel.find().sort({ createdAt: 1 });
     if (!shortUrls) {
       res.status(404).send({ message: "Urls not found" });
     }

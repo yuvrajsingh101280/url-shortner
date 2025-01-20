@@ -1,9 +1,13 @@
 import axios from "axios";
 import React, { useState } from "react";
 
-type Props = {};
+type Props = {
+  updateReloadState: () => void;
+};
 
 const FormContainer = (props: Props) => {
+  const { updateReloadState } = props;
+
   const [fullUrl, setFullUrl] = useState<string>("");
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -15,6 +19,7 @@ const FormContainer = (props: Props) => {
       console.log(fullUrl);
       console.log(url);
       setFullUrl("");
+      updateReloadState();
     } catch (error) {
       console.log(error);
     }
