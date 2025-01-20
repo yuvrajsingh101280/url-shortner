@@ -82,7 +82,7 @@ const DataTable = (props: IDataTableProps) => {
   const copyToClipboard = async (url: string) => {
     try {
       await navigator.clipboard.writeText(
-        `http://localhost:8000/api/shortUrl/${url}`
+        `https://url-shortner-ruptbackend.vercel.app/api/shortUrl/${url}`
       );
       alert("URL Copied");
     } catch (error) {
@@ -91,7 +91,7 @@ const DataTable = (props: IDataTableProps) => {
   };
   const deleteUrl = async (id: string) => {
     const response = await axios.delete(
-      `http://localhost:8000/api/shortUrl/${id}`
+      `https://url-shortner-ruptbackend.vercel.app/api/shortUrl/${id}`
     );
     updateReloadState();
     console.log(response);
