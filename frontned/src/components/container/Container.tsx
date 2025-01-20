@@ -13,7 +13,9 @@ const Container = (props: Props) => {
     setReload(true);
   };
   const fetchTableData = async () => {
-    const response = await axios.get("http://localhost:8000/api/shortUrl");
+    const response = await axios.get(
+      "https://url-shortner-ruptbackend.vercel.app/api/shortUrl"
+    );
 
     console.log(response);
     setData(response.data);

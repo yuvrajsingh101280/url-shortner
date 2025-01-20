@@ -26,7 +26,7 @@ const DataTable = (props: IDataTableProps) => {
           </td>
           <td className="px-6 py-3 break-words">
             <Link
-              to={`http://localhost:8000/api/shortUrl/${item.shortUrl}`}
+              to={`https://url-shortner-ruptbackend.vercel.app/api/shortUrl/${item.shortUrl}`}
               target="_blank"
               rel="noreferrer noopener"
             >

@@ -13,9 +13,12 @@ const FormContainer = (props: Props) => {
     e.preventDefault();
 
     try {
-      const url = await axios.post("http://localhost:8000/api/shortUrl", {
-        fullUrl: fullUrl,
-      });
+      const url = await axios.post(
+        "https://url-shortner-ruptbackend.vercel.app/api/shortUrl",
+        {
+          fullUrl: fullUrl,
+        }
+      );
       console.log(fullUrl);
       console.log(url);
       setFullUrl("");
