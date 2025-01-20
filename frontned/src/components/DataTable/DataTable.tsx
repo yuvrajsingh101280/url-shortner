@@ -25,7 +25,7 @@ const DataTable = (props: IDataTableProps) => {
           </td>
           <td className="px-6 py-3 break-words">
             <Link
-              to={`https://url-shortner-ruptbackend.vercel.app/api/shortUrl/${item.shortUrl}`}
+              to={`http://localhost:8000/api/shortUrl/${item.shortUrl}`}
               target="_blank"
               rel="noreferrer noopener"
             >
@@ -82,7 +82,7 @@ const DataTable = (props: IDataTableProps) => {
   const copyToClipboard = async (url: string) => {
     try {
       await navigator.clipboard.writeText(
-        `https://url-shortner-ruptbackend.vercel.app/api/shortUrl/${url}`
+        `http://localhost:8000/api/shortUrl/${url}`
       );
       alert("URL Copied");
     } catch (error) {
@@ -91,7 +91,7 @@ const DataTable = (props: IDataTableProps) => {
   };
   const deleteUrl = async (id: string) => {
     const response = await axios.delete(
-      `https://url-shortner-ruptbackend.vercel.app/api/shortUrl/${id}`
+      `http://localhost:8000/api/shortUrl/${id}`
     );
     updateReloadState();
     console.log(response);

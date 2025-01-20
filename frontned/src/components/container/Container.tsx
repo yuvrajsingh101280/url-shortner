@@ -3,7 +3,6 @@ import FormContainer from "../FormContainer/FormContainer";
 import { urlData } from "../../interface/urlData";
 import axios from "axios";
 import DataTable from "../DataTable/DataTable";
-// import server_url from "../../../helpers/server_url.js";
 
 const Container = () => {
   const [data, setData] = useState<urlData[]>([]);
@@ -12,9 +11,7 @@ const Container = () => {
     setReload(true);
   };
   const fetchTableData = async () => {
-    const response = await axios.get(
-      "https://url-shortner-ruptbackend.vercel.app/api/shortUrl"
-    );
+    const response = await axios.get("http://localhost:8000/api/shortUrl");
 
     console.log(response);
     setData(response.data);
