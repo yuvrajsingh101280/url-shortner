@@ -1,4 +1,3 @@
-import React from "react";
 import { urlData } from "../../interface/urlData";
 import { Link } from "react-router-dom";
 import axios from "axios";
